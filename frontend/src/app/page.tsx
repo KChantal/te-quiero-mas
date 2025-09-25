@@ -5,6 +5,7 @@ import { PhraseInLanguage } from "../types";
 import LanguageCard from "./components/LanguageCard";
 import TitleHeader from "./components/TitleHeader";
 import AddNewLanguage from "./components/AddNewLanguage";
+import AudioPlayer from "./components/AudioPlayer";
 
  
 export default function Home() {
@@ -26,11 +27,11 @@ export default function Home() {
   }
 
   if (loading) return (
-    <main className="flex flex-col gap-[32px] items-center sm:items-center flex-grow">
+    <main className="min-h-screen flex flex-col items-center justify-center px-6">
       <TitleHeader />
-      <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <div className="mt-6">
         <h2
-          className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-bold text-base sm:text-base h-10 sm:h-12 px-6 sm:px-5 sm:w-auto"
+          className="rounded-full bg-foreground text-background font-bold h-10 px-6 flex items-center"
         >
           Loading Languages....
         </h2>
@@ -39,15 +40,19 @@ export default function Home() {
   );
 
   return (
-    <div className="flex flex-col min-h-screen p-8 pb-20 gap-0 sm:p-20">
+    <div className="min-h-screen flex flex-col px-6">
       <main className="flex flex-col gap-[32px] items-center sm:items-center flex-grow">
-        <TitleHeader />
+        <div className="mx-auto w-full max-w-screen-sm md:max-w-screen-md px-4 py-10 flex flex-col items-center gap-8">
+          <div className="w-full space-y-4">
+            <TitleHeader />
+            <AudioPlayer />
+          </div>
+        </div>
 
         {!showCard ? (
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <div className="w-full flex justify-center">
             <button
-              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-bold text-base sm:text-base h-10 sm:h-12 px-6 sm:px-5 sm:w-auto"
-              rel="noopener noreferrer"
+              className="rounded-full bg-foreground text-background font-bold h-12 px-6 hover:opacity-90 transition"
               onClick={handleStartLearning}
             >
               Start Learning
@@ -57,8 +62,10 @@ export default function Home() {
           <LanguageCard languages={languages} />
         )}
       </main>
-      <footer className="flex gap-[24px] flex-wrap items-center justify-center mt-auto">
-        <AddNewLanguage />
+       <footer className="mx-auto w-full max-w-screen-sm md:max-w-screen-md px-4 pb-10">
+        <div className="flex flex-wrap gap-4 items-center justify-center">
+          <AddNewLanguage />
+        </div>
       </footer>
     </div>
   );

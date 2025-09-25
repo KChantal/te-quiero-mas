@@ -24,38 +24,32 @@ const LanguageCard: FC<Props> = (props) => {
   const current = languages[currIndex];
 
   if (!languages.length) return (
-    <div className="flex gap-4 items-center flex-col sm:flex-row">
-      <h2
-        className="flex items-center justify-center text-foreground gap-2 font-bold text-base sm:text-base h-10 sm:h-12 px-6 sm:px-5 sm:w-auto"
-      >
+    <div className="w-full flex justify-center">
+      <h2 className="text-foreground font-bold h-10 px-6 flex items-center">
         No languages found....!
       </h2>
-    </div> 
+    </div>
   );
 
   return (
-    <div className="grid grid-rows-[auto_1fr] items-center w-full max-w-3xl">
-      <div className="w-[26rem] rounded-2xl bg-foreground text-background shadow-xl/70 shadow-secondary p-6 flex flex-col items-center gap-3 mx-auto mb-2">
-        <p className="text-sm opacity-80">Language</p>
-        <h2 className="text-2xl font-semibold">
-          {current.lang_name || 'Español'} 
+    <div className="w-full flex flex-col items-center">
+      <div className="w-full max-w-sm md:max-w-md rounded-2xl bg-foreground text-background shadow-xl p-6 flex flex-col items-center gap-3">
+        <p className="text-xs md:text-sm opacity-80">Language</p>
+        <h2 className="text-xl md:text-2xl font-semibold text-center">
+          {current.lang_name || 'Español'}
         </h2>
-        <p className="text-sm opacity-80">I love you</p>
-        <h2 className="text-2xl font-bold text-shadow-sm text-shadow-lighter/50">{current.phrase || 'Te quiero'}</h2>
+        <p className="text-xs md:text-sm opacity-80">I love you</p>
+        <h2 className="text-xl md:text-2xl font-bold text-center">
+          {current.phrase || 'Te quiero'}
+        </h2>
       </div>
 
       <button
-        className="group mt-6 p-2 rounded-full focus:outline-none"
+        className="group mt-6 p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 active:scale-95 transition"
         aria-label="Next"
         onClick={handleGoToNextLanguage}
       >
-        <span
-          className="
-            inline-flex rounded-full
-            group-focus-visible:ring-2 group-focus-visible:ring-violet-500 group-focus-visible:ring-offset-2
-            transition-transform group-hover:scale-115 group-active:scale-95
-          "
-        >
+        <span className="inline-flex rounded-full group-hover:scale-120 transition">
           <FaArrowAltCircleRight size={48} />
         </span>
       </button>

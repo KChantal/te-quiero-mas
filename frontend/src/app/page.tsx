@@ -7,7 +7,6 @@ import TitleHeader from "./components/TitleHeader";
 import AddNewLanguage from "./components/AddNewLanguage";
 import AudioPlayer from "./components/AudioPlayer";
 
- 
 export default function Home() {
   const [showCard, setShowCard] = useState(false);
   const [loading, setIsLoading] = useState(true);

@@ -1,10 +1,10 @@
 "use client"
 import { useEffect, useState } from "react";
-import { FaLanguage } from "react-icons/fa6";
 import { getLanguagesFromDb } from "./db/actions";
 import { PhraseInLanguage } from "../types";
 import LanguageCard from "./components/LanguageCard";
 import TitleHeader from "./components/TitleHeader";
+import AddNewLanguage from "./components/AddNewLanguage";
 
  
 export default function Home() {
@@ -58,15 +58,7 @@ export default function Home() {
         )}
       </main>
       <footer className="flex gap-[24px] flex-wrap items-center justify-center mt-auto">
-        <a
-          className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-semibold text-sm sm:text-base h-8 sm:h-8 px-2 sm:px-5 sm:w-auto"
-          href="/add"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLanguage size={28} />
-          Add a new language
-        </a>
+        <AddNewLanguage />
       </footer>
     </div>
   );
